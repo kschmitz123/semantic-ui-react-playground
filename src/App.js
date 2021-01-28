@@ -17,6 +17,7 @@ import {
   Step,
   Menu,
   Dropdown,
+  Feed,
 } from "semantic-ui-react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -158,6 +159,25 @@ function App() {
       </Placeholder>
 
       <Step.Group items={steps} />
+
+      <Feed>
+        <Feed.Event>
+          <Feed.Label>
+            <img src={logo} alt="" />
+          </Feed.Label>
+          <Feed.Content>
+            <Feed.Summary>
+              <Feed.User>Elliot Fu</Feed.User> added you as a friend
+              <Feed.Date>1 Hour Ago</Feed.Date>
+            </Feed.Summary>
+            <Feed.Meta>
+              <Feed.Like>
+                <Icon name="like" />4 Likes
+              </Feed.Like>
+            </Feed.Meta>
+          </Feed.Content>
+        </Feed.Event>
+      </Feed>
     </div>
   );
 }
