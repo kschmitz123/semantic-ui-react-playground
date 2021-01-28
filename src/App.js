@@ -15,12 +15,15 @@ import {
   Loader,
   Placeholder,
   Step,
+  Menu,
+  Dropdown,
 } from "semantic-ui-react";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
   const [segment, setSegment] = useState(false);
+  const [state, setState] = useState({ activeItem: "home" });
 
   const steps = [
     {
@@ -38,9 +41,36 @@ function App() {
     },
     { key: "confirm", disabled: true, icon: "info", title: "Confirm Order" },
   ];
-
+  const handleItemClick = (e, { name }) => {
+    setState({ activeItem: name });
+  };
+  const { activeItem } = state;
   return (
     <div className="App">
+      <Menu inverted>
+        <Menu.Item
+          color="teal"
+          name="home"
+          active={activeItem === "home"}
+          onClick={handleItemClick}
+        />
+        <Menu.Item
+          color="yellow"
+          name="about"
+          active={activeItem === "about"}
+          onClick={handleItemClick}
+        />
+        <Menu.Item>
+          <Input icon="search" />
+        </Menu.Item>
+        <Dropdown item text="Categories">
+          <Dropdown.Menu>
+            <Dropdown.Item>Electronics</Dropdown.Item>
+            <Dropdown.Item>Automotive</Dropdown.Item>
+            <Dropdown.Item>Home</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Menu>
       <Header as="h1">First Header</Header>
       <Header as="h2">Second Header</Header>
       <Header as="h3">Third Header</Header>
