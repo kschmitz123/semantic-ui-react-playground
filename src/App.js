@@ -18,6 +18,8 @@ import {
   Menu,
   Dropdown,
   Feed,
+  Modal,
+  Progress,
 } from "semantic-ui-react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -178,6 +180,15 @@ function App() {
           </Feed.Content>
         </Feed.Event>
       </Feed>
+
+      <Modal
+        trigger={<Button>Show Modal</Button>}
+        header="Reminder!"
+        content="Call Benjamin regarding the reports."
+        actions={["Snooze", { key: "done", content: "Done", positive: true }]}
+      />
+      <Divider />
+      <Progress percent={11} color="orange" />
     </div>
   );
 }
